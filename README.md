@@ -8,6 +8,6 @@ The **LULC Ontology** is a project which goal is to propose an ontology helping 
 - **LULC_ontology_template_guide.docx** is a detailed guide on how to fill the Excel template.
 - **LULC_Ontology_template.xlsm** is the empty Excel file needed to instantiate the ontology.
 - **LULC_Ontology_example.xlsm** is an example Excel file.
-- **lulc.owl** is the ontology represented in the owl format.
+- **lulc_review.owl** is the ontology represented in the owl format.
 - **owl_filler.py** is the python code that take as input the excel file and outputs the ontology instantiated with the articles in the Excel file.
-
+- **metadata_enrichment.py** is a python code that allows to automatically complete in the Excel file the metadata of a paper from its DOI.

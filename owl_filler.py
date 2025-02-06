@@ -138,7 +138,7 @@ def create_article(onto, row):
         for algorithm_name in re.split("\s?;\s?",row["algorithms"]):
             algorithm = onto["algorithm"](algorithm_name.replace(" ","_"))
             algorithm.label = algorithm_name
-            process.hasInstrument.append(algorithm)
+            process.hasAlgorithm.append(algorithm)
             
     #tools
     if not row.isna()["tool used names"]:
@@ -515,7 +515,7 @@ def get_excel_files(path: str):
 if __name__ == "__main__":
   
     owl_file_path = os.path.join(
-        "lulc.owl"
+        "lulc_review.owl"
         )
     
     onto = or2.get_ontology(owl_file_path).load()
@@ -536,6 +536,6 @@ if __name__ == "__main__":
     
     onto.save(
         os.path.join(
-            "lulc_instanciated.owl"
+            "lulc_review_instantiated.owl"
             )
         )
