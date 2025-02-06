@@ -6,10 +6,8 @@ Created on Fri Nov 24 11:58:31 2023
 """
 import os
 import pandas as pd
-import numpy as np
 import owlready2  as or2
 import re
-from typing import Union, Optional, Iterable
 import pylatexenc.latex2text
 
 TRUE_VALUES = ["yes", "true", "1", "t", "y", "0b1", "√", "☑", "✔"]
