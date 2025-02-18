@@ -453,8 +453,13 @@ def create_article(onto, row):
                 algo_qual_assessment = onto[metrics_type[i]](
                     metric.replace(" ", "_") + "_" + j + "_" + doi
                     )
-                lulc_class_name, value = re.split("\s?:\s?", metric_value)
-                lulc_class = eval("onto.lulc_class_"+lulc_class_name.replace(" ", "_"))
+                if ":" not in metric_value:
+                    assert len(all_classes)==1, f"class name not provided for {metric}"
+                    lulc_class = all_classes[0]
+                    value = metric_value
+                else:
+                    lulc_class_name, value = re.split("\s?:\s?", metric_value)
+                    lulc_class = eval("onto.lulc_class_"+lulc_class_name.replace(" ", "_"))
                 algo_qual_assessment.assessedOnClass.append(lulc_class)
                 algo_qual_assessment.value.append(
                     eval( value.replace("%","/100") )
