@@ -397,94 +397,133 @@ def create_article(onto, row):
         
             process.hasStudyCase.append(study_case)
 
-    # Quality assessment
-    computed = "computed"
-    ## Global metrics
-    list_global_quality_metrics = [
-        'OA',
-        'mF1',
-        'mIoU',
-        'kappa',
-        'global recall (producer accuracy)',
-        'global precision (user accuracy)'
-        ]
-    metrics_type = [
-        "algorithm_quality_assessment",
-        "f1_score",
-        "intersection_over_union",
-        "algorithm_quality_assessment"
-        "recall",
-        "precision"
-        ]
-    for i, metric in enumerate(list_global_quality_metrics):
-        if not row.isna()[metric]:
-            metric_values = re.split("\s?;\s?", row[metric])
-            for j, metric_value in enumerate(metric_values):
-                algo_qual_assessment = onto[metrics_type[i]](
-                    metric.replace(" ", "_")  + "_" + j + "_" + doi
-                    )
-                algo_qual_assessment.value.append(
-                    eval( metric_value.replace("%","/100") )
-                    )
-                process.hasAccuracyAlgorithm.append(algo_qual_assessment)
+# Quality assessment
+computed = "computed"
+## Global metrics
+list_global_quality_metrics = [
+    'OA',
+    'mF1',
+    'mIoU',
+    'kappa',
+    'global recall (producer accuracy)',
+    'global precision (user accuracy)'
+    ]
+metrics_type = [
+    "algorithm_quality_assessment",
+    "f1_score",
+    "intersection_over_union",
+    "algorithm_quality_assessment",
+    "recall",
+    "precision"
+    ]
 
+# Count the number of validation datasets and study areas
+num_validation_datasets = len(list_inputs_is_training) if list_inputs_is_training else 0
+num_study_areas = len(study_cases) if study_cases else 0
 
-    ## Per class metrics
-    list_per_class_quality_metrics = [
-        'per class binary accuracy',
-        'per class F1 score',
-        'per class IoU',
-        'per class recall (producer accuracy)',
-        'per class precision (user accuracy)'
-        ]
-    metrics_type = [
-        "algorithm_quality_assessment",
-        "f1_score",
-        "algorithm_quality_assessment",
-        "recall",
-        "precision"
-        ]
-
-    for i, metric in enumerate(list_per_class_quality_metrics):
-        if not row.isna()[metric]:
-            metric_values = re.split("\s?;\s?", row[metric])
-            for j, metric_value in enumerate(metric_values):
-
-                algo_qual_assessment = onto[metrics_type[i]](
-                    metric.replace(" ", "_") + "_" + j + "_" + doi
-                    )
-                if ":" not in metric_value:
-                    assert len(all_classes)==1, f"class name not provided for {metric}"
-                    lulc_class = all_classes[0]
-                    value = metric_value
-                else:
-                    lulc_class_name, value = re.split("\s?:\s?", metric_value)
-                    lulc_class = eval("onto.lulc_class_"+lulc_class_name.replace(" ", "_"))
-                algo_qual_assessment.assessedOnClass.append(lulc_class)
-                algo_qual_assessment.value.append(
-                    eval( value.replace("%","/100") )
-                    )
-                process.hasAccuracyAlgorithm.append(algo_qual_assessment)
-    
-    if not row.isna()["user defined algorithm quality assessment metrics"]:
-        other_metrics = re.split("\s?;\s?", row["user defined algorithm quality assessment metrics"])
-        for j, metric in enumerate(other_metrics):
-            metric_name_and_class, metric_value = re.split("\s?:\s?", metric)
-            if "(" in metric_name_and_class:
-                metric_name, lulc_class_name = re.split("\s?(\s?", metric_name_and_class.replace(")", ""))
-                lulc_class = eval("onto.lulc_class_"+lulc_class_name.replace(" ", "_"))
-            else:
-                metric_name = metric_name_and_class
-            algo_qual_assessment = onto["algorithm_quality_assessment"](
-                metric_name.replace(" ", "_") + "_" + j + "_" + doi
+for i, metric in enumerate(list_global_quality_metrics):
+    if not row.isna()[metric]:
+        metric_values = re.split("\s?;\s?", row[metric])
+        for j, metric_value in enumerate(metric_values):
+            algo_qual_assessment = onto[metrics_type[i]](
+                metric.replace(" ", "_")  + "_" + j + "_" + doi
                 )
-            algo_qual_assessment.label = metric_name
-            if "(" in metric_name_and_class:
-                algo_qual_assessment.assessedOnClass.append(lulc_class)
             algo_qual_assessment.value.append(
-                    eval( value.replace("%","/100") )
-                    )
+                eval(metric_value.replace("%", "/100"))
+                )
+            if num_validation_datasets == num_study_areas:
+                # Assume each validation dataset corresponds to a study area
+                algo_qual_assessment.hasValidationDataset.append(list_inputs[j])
+                algo_qual_assessment.hasStudyCase.append(study_cases[j])
+            elif num_validation_datasets == len(metric_values):
+                # Assume each metric value corresponds to a validation dataset
+                algo_qual_assessment.hasValidationDataset.append(list_inputs[j])
+            elif num_study_areas == len(metric_values):
+                # Assume each metric value corresponds to a study area
+                algo_qual_assessment.hasStudyCase.append(study_cases[j])
+            else:
+                print(f"Mismatch in the number of validation datasets, study areas, and metric values for {metric}")
             process.hasAccuracyAlgorithm.append(algo_qual_assessment)
+
+## Per class metrics
+list_per_class_quality_metrics = [
+    'per class binary accuracy',
+    'per class F1 score',
+    'per class IoU',
+    'per class recall (producer accuracy)',
+    'per class precision (user accuracy)'
+    ]
+metrics_type = [
+    "algorithm_quality_assessment",
+    "f1_score",
+    "algorithm_quality_assessment",
+    "recall",
+    "precision"
+    ]
+
+for i, metric in enumerate(list_per_class_quality_metrics):
+    if not row.isna()[metric]:
+        metric_values = re.split("\s?;\s?", row[metric])
+        for j, metric_value in enumerate(metric_values):
+            algo_qual_assessment = onto[metrics_type[i]](
+                metric.replace(" ", "_") + "_" + j + "_" + doi
+                )
+            if ":" not in metric_value:
+                assert len(all_classes) == 1, f"class name not provided for {metric}"
+                lulc_class = all_classes[0]
+                value = metric_value
+            else:
+                lulc_class_name, value = re.split("\s?:\s?", metric_value)
+                lulc_class = eval("onto.lulc_class_" + lulc_class_name.replace(" ", "_"))
+            algo_qual_assessment.assessedOnClass.append(lulc_class)
+            algo_qual_assessment.value.append(
+                eval(value.replace("%", "/100"))
+                )
+            if num_validation_datasets == num_study_areas:
+                # Assume each validation dataset corresponds to a study area
+                algo_qual_assessment.hasValidationDataset.append(list_inputs[j])
+                algo_qual_assessment.hasStudyCase.append(study_cases[j])
+            elif num_validation_datasets == len(metric_values):
+                # Assume each metric value corresponds to a validation dataset
+                algo_qual_assessment.hasValidationDataset.append(list_inputs[j])
+            elif num_study_areas == len(metric_values):
+                # Assume each metric value corresponds to a study area
+                algo_qual_assessment.hasStudyCase.append(study_cases[j])
+            else:
+                print(f"Mismatch in the number of validation datasets, study areas, and metric values for {metric}")
+            process.hasAccuracyAlgorithm.append(algo_qual_assessment)
+
+if not row.isna()["user defined algorithm quality assessment metrics"]:
+    other_metrics = re.split("\s?;\s?", row["user defined algorithm quality assessment metrics"])
+    for j, metric in enumerate(other_metrics):
+        metric_name_and_class, metric_value = re.split("\s?:\s?", metric)
+        if "(" in metric_name_and_class:
+            metric_name, lulc_class_name = re.split("\s?(\s?", metric_name_and_class.replace(")", ""))
+            lulc_class = eval("onto.lulc_class_" + lulc_class_name.replace(" ", "_"))
+        else:
+            metric_name = metric_name_and_class
+        algo_qual_assessment = onto["algorithm_quality_assessment"](
+            metric_name.replace(" ", "_") + "_" + j + "_" + doi
+            )
+        algo_qual_assessment.label = metric_name
+        if "(" in metric_name_and_class:
+            algo_qual_assessment.assessedOnClass.append(lulc_class)
+        algo_qual_assessment.value.append(
+                eval(metric_value.replace("%", "/100"))
+                )
+        if num_validation_datasets == num_study_areas:
+            # Assume each validation dataset corresponds to a study area
+            algo_qual_assessment.hasValidationDataset.append(list_inputs[j])
+            algo_qual_assessment.hasStudyCase.append(study_cases[j])
+        elif num_validation_datasets == len(metric_values):
+            # Assume each metric value corresponds to a validation dataset
+            algo_qual_assessment.hasValidationDataset.append(list_inputs[j])
+        elif num_study_areas == len(metric_values):
+            # Assume each metric value corresponds to a study area
+            algo_qual_assessment.hasStudyCase.append(study_cases[j])
+        else:
+            print(f"Mismatch in the number of validation datasets, study areas, and metric values for {metric}")
+        process.hasAccuracyAlgorithm.append(algo_qual_assessment)
 
     #criterions
     if row["codeAvailability "].lower not in(FALSE_VALUES):
