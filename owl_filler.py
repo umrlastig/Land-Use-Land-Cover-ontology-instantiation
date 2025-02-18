@@ -282,11 +282,11 @@ def create_article(onto, row):
                 else:
                     print("It lacks a validation dataset size")
                 index_validation_dataset +=1
-                if nature in ['land_use', 'land_cover', 'land_use_land_cover']:
+                if nature in ['land_use', 'land_cover', 'land_use_land_cover', 'building']:
                     if not row.isna()["if classification, nomenclature level"]:
                         levels = re.split("\s?;\s?", row["if classification, nomenclature level"])
                         number_nomenclatures = len(levels)
-                        lu_or_lc = {"land_use":"lu", "land_cover":"lc", "land_use_land_cover":"lulc"}[nature_i]
+                        lu_or_lc = {"land_use":"lu", "land_cover":"lc", "land_use_land_cover":"lulc", "building":"lu"}[nature]
                         nomenclature_names = re.split("\s?;\s?",  row["if classification, nomenclature name"])
                         nomenclature_names = [name if name!="" else f"{doi}_{lu_or_lc}_nomenclature_level_{levels[k]}" for k, name in enumerate(nomenclature_names)]
                         nomenclature_classes_groups = re.split("\s?|\s?", row["if classification, nomenclature classes"])
