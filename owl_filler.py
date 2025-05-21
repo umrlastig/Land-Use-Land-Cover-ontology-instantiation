@@ -555,13 +555,15 @@ def get_excel_files(path: str):
 
 #%%
 if __name__ == "__main__":
-  
+
+    #path to the owl file defining the ontology
     owl_file_path = os.path.join(
         "lulc_review.owl"
         )
     
     onto = or2.get_ontology(owl_file_path).load()
-    
+
+    #path to an excel file describing articles to instantiate, or a folder of excel files
     excel_ontology_folder_path = os.path.join(
         "LULC_Ontology_example.xlsm"
         )
