@@ -129,7 +129,7 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/lulc_review#lulc_class"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/lulc_review#nomenclature"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Indicates that a class belongs to a nomenclature</rdfs:comment>
+        <rdfs:comment>Indicates that a class belongs to a nomenclature</rdfs:comment>
         <rdfs:label xml:lang="en">belongsToNomenclature</rdfs:label>
     </owl:ObjectProperty>
     
@@ -237,7 +237,7 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/lulc_review#nomenclature"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/lulc_review#lulc_class"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines that a nomenclature contains a lulc_class.</rdfs:comment>
+        <rdfs:comment>Defines that a nomenclature contains a lulc_class.</rdfs:comment>
         <rdfs:label xml:lang="en">hasLULCClass</rdfs:label>
     </owl:ObjectProperty>
     
@@ -335,9 +335,9 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/lulc_review#hasStudyCase">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/lulc_review#isDefiningStudyCase"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/lulc_review#paper"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/lulc_review#process"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/lulc_review#geographic_extent"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/lulc_review#geographic_extent"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/lulc_review#paper"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/lulc_review#process"/>
     </owl:ObjectProperty>
     
 
@@ -360,7 +360,7 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/lulc_review#lulc_class"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/lulc_review#lulc_class"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines that a Land Use or Land Cover class is a subclass of another Land Use or Land Cover class.</rdfs:comment>
+        <rdfs:comment>Defines that a Land Use or Land Cover class is a subclass of another Land Use or Land Cover class.</rdfs:comment>
         <rdfs:label xml:lang="en">isALandUseOrLandCoverSubclassOf</rdfs:label>
     </owl:ObjectProperty>
     
@@ -477,7 +477,7 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/lulc_review#isKeywordOf">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/lulc_review#keyword"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/lulc_review#paper"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the relationship between a keyword and a paper; a paper can have n keywords and a keyword can be commun to m papers</rdfs:comment>
+        <rdfs:comment>Defines the relationship between a keyword and a paper; a paper can have n keywords and a keyword can be commun to m papers</rdfs:comment>
         <rdfs:label xml:lang="en">isKeywordOf</rdfs:label>
     </owl:ObjectProperty>
     
@@ -519,7 +519,7 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/lulc_review#isPartOf">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/lulc_review#spatial_data"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/lulc_review#spatial_data"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines that a given dataset is part of a regional, national or global database</rdfs:comment>
+        <rdfs:comment>Defines that a given dataset is part of a regional, national or global database</rdfs:comment>
         <rdfs:label xml:lang="en">isPartOf</rdfs:label>
     </owl:ObjectProperty>
     
@@ -659,7 +659,7 @@
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/lulc_review#TextMetadataAvailability">
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/lulc_review#metadataAvailability"/>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">textMetadataAvailability</rdfs:label>
+        <rdfs:label>textMetadataAvailability</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -698,7 +698,8 @@
     <!-- http://www.semanticweb.org/lulc_review#application -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/lulc_review#application">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/lulc_review#criterion"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/lulc_review#paper"/>
         <rdfs:label>application</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -718,7 +719,8 @@
     <!-- http://www.semanticweb.org/lulc_review#challenge -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/lulc_review#challenge">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/lulc_review#criterion"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/lulc_review#paper"/>
         <rdfs:label>challenge</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -729,7 +731,7 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/lulc_review#class_code">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It defines the code of the Land Use or Land Cover class with respect to the nomenclature (e.g. in EAGLE nomenclature, the code LCC-1_2_1_1 correspond to the class bare rocks).</rdfs:comment>
+        <rdfs:comment>It defines the code of the Land Use or Land Cover class with respect to the nomenclature (e.g. in EAGLE nomenclature, the code LCC-1_2_1_1 correspond to the class bare rocks).</rdfs:comment>
         <rdfs:label xml:lang="en">class_code</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -749,7 +751,7 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/lulc_review#class_label">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It defines the name of the class as given in the nomenclature (e.g. in EAGLE nomenclature, the label of the class LCC-1_2_1_1 is bare rocks).</rdfs:comment>
+        <rdfs:comment>It defines the name of the class as given in the nomenclature (e.g. in EAGLE nomenclature, the label of the class LCC-1_2_1_1 is bare rocks).</rdfs:comment>
         <rdfs:label xml:lang="en">class_label</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -758,7 +760,8 @@
     <!-- http://www.semanticweb.org/lulc_review#codeAvailability -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/lulc_review#codeAvailability">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/lulc_review#criterion"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/lulc_review#paper"/>
         <rdfs:label>codeAvailability</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -797,7 +800,8 @@
     <!-- http://www.semanticweb.org/lulc_review#dataAvailability -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/lulc_review#dataAvailability">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/lulc_review#criterion"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/lulc_review#paper"/>
         <rdfs:label>dataAvailability</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -837,7 +841,7 @@
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/lulc_review#genericProcedure">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines which generic procedure(s) the given procedure implements. For instance, according to Stehman and Foody, 2019, Key issues in regress accuracy assessment of Land Cover products, accuracy assessment process is composed by several generic steps, which are &quot;sampling design&quot;, &quot;response design&quot;, &quot;quality assessment&quot;.</rdfs:comment>
+        <rdfs:comment>Defines which generic procedure(s) the given procedure implements. For instance, according to Stehman and Foody, 2019, Key issues in regress accuracy assessment of Land Cover products, accuracy assessment process is composed by several generic steps, which are &quot;sampling design&quot;, &quot;response design&quot;, &quot;quality assessment&quot;.</rdfs:comment>
         <rdfs:label xml:lang="en">genericProcedure</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -860,7 +864,7 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/lulc_review#nomenclature"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Define if a nomenclature is hierarchical</rdfs:comment>
+        <rdfs:comment>Define if a nomenclature is hierarchical</rdfs:comment>
         <rdfs:label xml:lang="en">hierarchical</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -890,7 +894,7 @@
         <rdfs:domain rdf:resource="http://www.semanticweb.org/lulc_review#unmanned_aerial_vehicles_imagery"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/lulc_review#validation_dataset"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Time is expressed in interval</rdfs:comment>
+        <rdfs:comment>Time is expressed in interval</rdfs:comment>
         <rdfs:label xml:lang="en">interval_date</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -925,7 +929,7 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/lulc_review#spatial_data"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines if the Geometric Representation  of a dataset is point</rdfs:comment>
+        <rdfs:comment>Defines if the Geometric Representation  of a dataset is point</rdfs:comment>
         <rdfs:label xml:lang="en">lineGeometricRepresentation</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -943,7 +947,8 @@
     <!-- http://www.semanticweb.org/lulc_review#metadataAvailability -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/lulc_review#metadataAvailability">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/lulc_review#criterion"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/lulc_review#paper"/>
         <rdfs:label>metadataAvailability</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -973,7 +978,7 @@
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/lulc_review#numberOfAttributes">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Number of attributes, characteristics or indicators</rdfs:comment>
+        <rdfs:comment>Number of attributes, characteristics or indicators</rdfs:comment>
         <rdfs:label>numberOfAttributes</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -1031,7 +1036,8 @@
     <!-- http://www.semanticweb.org/lulc_review#strength -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/lulc_review#strength">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/lulc_review#criterion"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/lulc_review#paper"/>
         <rdfs:label>strength</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -1080,8 +1086,9 @@
     <!-- http://www.semanticweb.org/lulc_review#weaknesses -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/lulc_review#weaknesses">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/lulc_review#criterion"/>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">weakness</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/lulc_review#paper"/>
+        <rdfs:label>weakness</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1163,7 +1170,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#Orthoimagery">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#sensor_data"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Geo-referenced image data of the Earth&apos;s surface, from either satellite or airborne sensors.</rdfs:comment>
+        <rdfs:comment>Geo-referenced image data of the Earth&apos;s surface, from either satellite or airborne sensors.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://inspire.ec.europa.eu/theme/oi"/>
         <rdfs:label xml:lang="en">Orthoimagery</rdfs:label>
     </owl:Class>
@@ -1193,7 +1200,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#addresses">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#topographic_data"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Location of properties based on address identifiers, usually by road name, house number, postal code.</rdfs:comment>
+        <rdfs:comment>Location of properties based on address identifiers, usually by road name, house number, postal code.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://inspire.ec.europa.eu/theme/ad"/>
         <rdfs:label xml:lang="en">addresses</rdfs:label>
     </owl:Class>
@@ -1204,7 +1211,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#admnistrative_units">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#zoning"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Units of administration, dividing areas where countries have and/or exercise jurisdictional rights, for local, regional and national governance, separated by administrative boundaries.</rdfs:comment>
+        <rdfs:comment>Units of administration, dividing areas where countries have and/or exercise jurisdictional rights, for local, regional and national governance, separated by administrative boundaries.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://inspire.ec.europa.eu/theme/au"/>
         <rdfs:label xml:lang="en">administrative units</rdfs:label>
     </owl:Class>
@@ -1234,7 +1241,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#agricultural_and_aquaculture_facilities">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#topographic_data"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Farming equipment and production facilities (including irrigation systems, greenhouses and stables).</rdfs:comment>
+        <rdfs:comment>Farming equipment and production facilities (including irrigation systems, greenhouses and stables).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://inspire.ec.europa.eu/theme/af"/>
         <rdfs:label xml:lang="en">Agricultural and aquaculture facilities</rdfs:label>
     </owl:Class>
@@ -1245,7 +1252,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#air_ransport">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#transport_network"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This class represents road network topographic data (e.g. aerodromes, etc.)</rdfs:comment>
+        <rdfs:comment>This class represents road network topographic data (e.g. aerodromes, etc.)</rdfs:comment>
         <rdfs:label xml:lang="en">air_ransport</rdfs:label>
     </owl:Class>
     
@@ -1285,7 +1292,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#aspatial_data">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#data"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This class represents the type of aspatial data which can be used in the lifecycle of Land Use Land Cover Data, for instance texts or images</rdfs:comment>
+        <rdfs:comment>This class represents the type of aspatial data which can be used in the lifecycle of Land Use Land Cover Data, for instance texts or images</rdfs:comment>
         <rdfs:label xml:lang="en">aspatial_data</rdfs:label>
     </owl:Class>
     
@@ -1295,7 +1302,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#atmospheric_conditions">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#sensor_data"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Physical conditions in the atmosphere. Includes spatial data based on measurements, on models or on a combination thereof and includes measurement locations.</rdfs:comment>
+        <rdfs:comment>Physical conditions in the atmosphere. Includes spatial data based on measurements, on models or on a combination thereof and includes measurement locations.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://inspire.ec.europa.eu/theme/ac"/>
         <rdfs:label xml:lang="en">atmospheric conditions</rdfs:label>
     </owl:Class>
@@ -1345,7 +1352,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#cadastral_parcels">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#zoning"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Areas defined by cadastral registers or equivalent</rdfs:comment>
+        <rdfs:comment>Areas defined by cadastral registers or equivalent</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://inspire.ec.europa.eu/theme/cp"/>
         <rdfs:label xml:lang="en">cadastral parcels</rdfs:label>
     </owl:Class>
@@ -1477,7 +1484,7 @@ AM comments: 1/  if the calibration is a step of the mapping process (i.e. calib
     <!-- http://www.semanticweb.org/lulc_review#data -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#data">
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This class represents the type data which can be used in the lifecycle of Land Use Land Cover Data. It can be spatial or aspatial data.</rdfs:comment>
+        <rdfs:comment>This class represents the type data which can be used in the lifecycle of Land Use Land Cover Data. It can be spatial or aspatial data.</rdfs:comment>
         <rdfs:label xml:lang="en">data</rdfs:label>
     </owl:Class>
     
@@ -1575,7 +1582,7 @@ AM comments: 1/  if the calibration is a step of the mapping process (i.e. calib
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#environmental_monitoring_facilities">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#sensor_data"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Location and operation of environmental monitoring facilities includes observation and measurement of emissions, of the state of environmental media and of other ecosystem parameters (biodiversity, ecological conditions of vegetation, etc.) by or on behalf of public authorities.</rdfs:comment>
+        <rdfs:comment>Location and operation of environmental monitoring facilities includes observation and measurement of emissions, of the state of environmental media and of other ecosystem parameters (biodiversity, ecological conditions of vegetation, etc.) by or on behalf of public authorities.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://inspire.ec.europa.eu/theme/ef"/>
         <rdfs:label xml:lang="en">environmental monitoring facilities</rdfs:label>
     </owl:Class>
@@ -1605,7 +1612,7 @@ AM comments: 1/  if the calibration is a step of the mapping process (i.e. calib
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#geographical_names">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#topographic_data"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Names of areas, regions, localities, cities, suburbs, towns or settlements, or any geographical or topographical feature of public or historical interest.</rdfs:comment>
+        <rdfs:comment>Names of areas, regions, localities, cities, suburbs, towns or settlements, or any geographical or topographical feature of public or historical interest.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://inspire.ec.europa.eu/theme/gn"/>
         <rdfs:label xml:lang="en">geographical names</rdfs:label>
     </owl:Class>
@@ -1626,7 +1633,7 @@ AM comments: 1/  if the calibration is a step of the mapping process (i.e. calib
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#human_health_and_safety">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#human_statistics"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Geographical distribution of dominance of pathologies (allergies, cancers, respiratory diseases, etc.), information indicating the effect on health (biomarkers, decline of fertility, epidemics) or well-being of humans (fatigue, stress, etc.) linked directly (air pollution, chemicals, depletion of the ozone layer, noise, etc.) or indirectly (food, genetically modified organisms, etc.) to the quality of the environment.</rdfs:comment>
+        <rdfs:comment>Geographical distribution of dominance of pathologies (allergies, cancers, respiratory diseases, etc.), information indicating the effect on health (biomarkers, decline of fertility, epidemics) or well-being of humans (fatigue, stress, etc.) linked directly (air pollution, chemicals, depletion of the ozone layer, noise, etc.) or indirectly (food, genetically modified organisms, etc.) to the quality of the environment.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://inspire.ec.europa.eu/theme/hh"/>
         <rdfs:label xml:lang="en">human health and safety</rdfs:label>
     </owl:Class>
@@ -1648,6 +1655,16 @@ AM comments: 1/  if the calibration is a step of the mapping process (i.e. calib
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#topographic_data"/>
         <rdfs:comment xml:lang="en">This class represents hydrology topographic data (e.g. rivers, lakes, etc.)</rdfs:comment>
         <rdfs:label xml:lang="en">hydrology</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/lulc_review#inference -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#inference">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#mapping"/>
+        <rdfs:comment>define here inference</rdfs:comment>
+        <rdfs:label>inference</rdfs:label>
     </owl:Class>
     
 
@@ -1703,7 +1720,7 @@ AM comments: 1/  if the calibration is a step of the mapping process (i.e. calib
     <!-- http://www.semanticweb.org/lulc_review#keyword -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#keyword">
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines a keyword of the paper and must be exactely the same as in metadata of the paper</rdfs:comment>
+        <rdfs:comment>Defines a keyword of the paper and must be exactely the same as in metadata of the paper</rdfs:comment>
         <rdfs:label xml:lang="en">keyword</rdfs:label>
     </owl:Class>
     
@@ -1743,7 +1760,7 @@ AM comments: 1/  if the calibration is a step of the mapping process (i.e. calib
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#lc_class">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#lulc_class"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It defines the Land Cover class (eg. lc_class=Built-up)</rdfs:comment>
+        <rdfs:comment>It defines the Land Cover class (eg. lc_class=Built-up)</rdfs:comment>
         <rdfs:label xml:lang="en">lc_class</rdfs:label>
     </owl:Class>
     
@@ -1763,7 +1780,7 @@ AM comments: 1/  if the calibration is a step of the mapping process (i.e. calib
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#level1_lc_nomenclature">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#lc_nomenclature"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It defines the first level of a land cover nomenclature</rdfs:comment>
+        <rdfs:comment>It defines the first level of a land cover nomenclature</rdfs:comment>
         <rdfs:label xml:lang="en">level 1 land cover nomenclature</rdfs:label>
     </owl:Class>
     
@@ -1773,7 +1790,7 @@ AM comments: 1/  if the calibration is a step of the mapping process (i.e. calib
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#level1_lu_nomenclature">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#lu_nomenclature"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It defines the first level of a land use nomenclature</rdfs:comment>
+        <rdfs:comment>It defines the first level of a land use nomenclature</rdfs:comment>
         <rdfs:label xml:lang="en">level 1 land use nomenclature</rdfs:label>
     </owl:Class>
     
@@ -1783,7 +1800,7 @@ AM comments: 1/  if the calibration is a step of the mapping process (i.e. calib
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#level1_mixed_lu_and_lc_nomenclature">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#mixed_lu_and_lc_nomenclature"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It defines the first level of a mixed nomenclature</rdfs:comment>
+        <rdfs:comment>It defines the first level of a mixed nomenclature</rdfs:comment>
         <rdfs:label xml:lang="en">level1 mixed Land Use and Land Cover nomenclature</rdfs:label>
     </owl:Class>
     
@@ -1793,7 +1810,7 @@ AM comments: 1/  if the calibration is a step of the mapping process (i.e. calib
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#level2_lc_nomenclature">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#lc_nomenclature"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It defines the second level of a land cover nomenclature</rdfs:comment>
+        <rdfs:comment>It defines the second level of a land cover nomenclature</rdfs:comment>
         <rdfs:label xml:lang="en">level 2 land cover nomenclature</rdfs:label>
     </owl:Class>
     
@@ -1803,7 +1820,7 @@ AM comments: 1/  if the calibration is a step of the mapping process (i.e. calib
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#level2_lu_nomenclature">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#lu_nomenclature"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It defines the second level of a land use nomenclature</rdfs:comment>
+        <rdfs:comment>It defines the second level of a land use nomenclature</rdfs:comment>
         <rdfs:label xml:lang="en">level 2 land use nomenclature</rdfs:label>
     </owl:Class>
     
@@ -1813,7 +1830,7 @@ AM comments: 1/  if the calibration is a step of the mapping process (i.e. calib
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#level2_mixed_lu_and_lc_nomenclature">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#mixed_lu_and_lc_nomenclature"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It defines the second level of a mixed nomenclature</rdfs:comment>
+        <rdfs:comment>It defines the second level of a mixed nomenclature</rdfs:comment>
         <rdfs:label xml:lang="en">level2 mixed Land Use and Land Cover nomenclature</rdfs:label>
     </owl:Class>
     
@@ -1823,7 +1840,7 @@ AM comments: 1/  if the calibration is a step of the mapping process (i.e. calib
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#level3_lc_nomenclature">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#lc_nomenclature"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It defines the third level of a land cover nomenclature</rdfs:comment>
+        <rdfs:comment>It defines the third level of a land cover nomenclature</rdfs:comment>
         <rdfs:label xml:lang="en">level 3 land cover nomenclature</rdfs:label>
     </owl:Class>
     
@@ -1833,7 +1850,7 @@ AM comments: 1/  if the calibration is a step of the mapping process (i.e. calib
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#level3_lu_nomenclature">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#lu_nomenclature"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It defines the third level of a land use nomenclature</rdfs:comment>
+        <rdfs:comment>It defines the third level of a land use nomenclature</rdfs:comment>
         <rdfs:label xml:lang="en">level 3 land use nomenclature</rdfs:label>
     </owl:Class>
     
@@ -1843,7 +1860,7 @@ AM comments: 1/  if the calibration is a step of the mapping process (i.e. calib
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#level3_mixed_lu_and_lc_nomenclature">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#mixed_lu_and_lc_nomenclature"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It defines the third level of a mixed nomenclature</rdfs:comment>
+        <rdfs:comment>It defines the third level of a mixed nomenclature</rdfs:comment>
         <rdfs:label xml:lang="en">level3 mixed Land Use and Land Cover nomenclature</rdfs:label>
     </owl:Class>
     
@@ -1873,7 +1890,7 @@ AM comments: 1/  if the calibration is a step of the mapping process (i.e. calib
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#lu_class">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#lulc_class"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It defines the Land Use class (eg. lu_class=Residential)</rdfs:comment>
+        <rdfs:comment>It defines the Land Use class (eg. lu_class=Residential)</rdfs:comment>
         <rdfs:label xml:lang="en">lu_class</rdfs:label>
     </owl:Class>
     
@@ -1892,7 +1909,7 @@ AM comments: 1/  if the calibration is a step of the mapping process (i.e. calib
     <!-- http://www.semanticweb.org/lulc_review#lulc_class -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#lulc_class">
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It defines the Land Use or Land Cover class (eg. lc_class=Built-up and lu_class=Residential)</rdfs:comment>
+        <rdfs:comment>It defines the Land Use or Land Cover class (eg. lc_class=Built-up and lu_class=Residential)</rdfs:comment>
         <rdfs:label xml:lang="en">lulc_class</rdfs:label>
     </owl:Class>
     
@@ -1922,7 +1939,7 @@ AM comments: 1/  if the calibration is a step of the mapping process (i.e. calib
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#meteorologic_geographical_features">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#sensor_data"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Weather conditions and their measurements; precipitation, temperature, evapotranspiration, wind speed and direction.</rdfs:comment>
+        <rdfs:comment>Weather conditions and their measurements; precipitation, temperature, evapotranspiration, wind speed and direction.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://inspire.ec.europa.eu/theme/mf"/>
         <rdfs:label xml:lang="en">meteorologic geographical features</rdfs:label>
     </owl:Class>
@@ -1933,7 +1950,7 @@ AM comments: 1/  if the calibration is a step of the mapping process (i.e. calib
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#mixed_lu_and_lc_nomenclature">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#nomenclature"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It defines the Mixed Land Use and Land Cover nomenclature</rdfs:comment>
+        <rdfs:comment>It defines the Mixed Land Use and Land Cover nomenclature</rdfs:comment>
         <rdfs:label xml:lang="en">Mixed Land Use and Land Cover nomenclature</rdfs:label>
     </owl:Class>
     
@@ -1992,7 +2009,7 @@ AM comments: 1/  if the calibration is a step of the mapping process (i.e. calib
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#oceanographic_geographical_features">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#sensor_data"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Physical conditions of oceans (currents, salinity, wave heights, etc.).</rdfs:comment>
+        <rdfs:comment>Physical conditions of oceans (currents, salinity, wave heights, etc.).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://inspire.ec.europa.eu/theme/of"/>
         <rdfs:label xml:lang="en">oceanographic geographical features</rdfs:label>
     </owl:Class>
@@ -2071,7 +2088,7 @@ AM comments: 1/  if the calibration is a step of the mapping process (i.e. calib
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#population_distribution_and_demography">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#human_statistics"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Geographical distribution of people, including population characteristics and activity levels, aggregated by grid, region, administrative unit or other analytical unit.</rdfs:comment>
+        <rdfs:comment>Geographical distribution of people, including population characteristics and activity levels, aggregated by grid, region, administrative unit or other analytical unit.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://inspire.ec.europa.eu/theme/pd"/>
         <rdfs:label xml:lang="en">population distribution and demography</rdfs:label>
     </owl:Class>
@@ -2124,7 +2141,7 @@ It defines the precision of an algorithm. Precision is the ratio of correctly pr
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#production_and_industrial_facilities">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#topographic_data"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Industrial production sites, including installations concerning integrated pollution prevention and control and water abstraction facilities, mining, storage sites.</rdfs:comment>
+        <rdfs:comment>Industrial production sites, including installations concerning integrated pollution prevention and control and water abstraction facilities, mining, storage sites.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://inspire.ec.europa.eu/theme/pf"/>
         <rdfs:label xml:lang="en">production_and_industrial_facilities</rdfs:label>
     </owl:Class>
@@ -2155,7 +2172,7 @@ It defines the precision of an algorithm. Precision is the ratio of correctly pr
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#railway_network">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#transport_network"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This class represents railway network topographic data (e.g. railways, train stations, etc.)</rdfs:comment>
+        <rdfs:comment>This class represents railway network topographic data (e.g. railways, train stations, etc.)</rdfs:comment>
         <rdfs:label xml:lang="en">railway network</rdfs:label>
     </owl:Class>
     
@@ -2323,7 +2340,7 @@ It defines the precision of an algorithm. Precision is the ratio of correctly pr
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#statistical_units">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#zoning"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Units for dissemination or use of statistical information.</rdfs:comment>
+        <rdfs:comment>Units for dissemination or use of statistical information.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://inspire.ec.europa.eu/theme/su"/>
         <rdfs:label xml:lang="en">statistical units</rdfs:label>
     </owl:Class>
@@ -2435,7 +2452,7 @@ It defines the precision of an algorithm. Precision is the ratio of correctly pr
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#transport_network">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#topographic_data"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Road, rail, air and water transport networks and related infrastructure. Includes links between different networks.</rdfs:comment>
+        <rdfs:comment>Road, rail, air and water transport networks and related infrastructure. Includes links between different networks.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://inspire.ec.europa.eu/theme/tn"/>
         <rdfs:label xml:lang="en">transport network</rdfs:label>
     </owl:Class>
@@ -2498,7 +2515,7 @@ It represents the recall of an algorithm. Recall is the ratio of correctly predi
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#user_defined_data">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#data"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">type of data that is not identified in the current version of the ontology</rdfs:comment>
+        <rdfs:comment>type of data that is not identified in the current version of the ontology</rdfs:comment>
         <rdfs:label xml:lang="en">user defined data</rdfs:label>
     </owl:Class>
     
@@ -2518,7 +2535,7 @@ It represents the recall of an algorithm. Recall is the ratio of correctly predi
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#user_defined_lu_nomenclature">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#lu_nomenclature"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It is about a land use nomenclature defined by a user (e.g. the author of the paper)</rdfs:comment>
+        <rdfs:comment>It is about a land use nomenclature defined by a user (e.g. the author of the paper)</rdfs:comment>
         <rdfs:label xml:lang="en">User defined land use nomenclature</rdfs:label>
     </owl:Class>
     
@@ -2528,7 +2545,7 @@ It represents the recall of an algorithm. Recall is the ratio of correctly predi
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#user_defined_mixed_lu_and_lc_nomenclature">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#mixed_lu_and_lc_nomenclature"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It is about a land use nomenclature defined by a user (e.g. the author of the paper)</rdfs:comment>
+        <rdfs:comment>It is about a land use nomenclature defined by a user (e.g. the author of the paper)</rdfs:comment>
         <rdfs:label xml:lang="en">user defined mixed Land Use and Land Cover nomenclature</rdfs:label>
     </owl:Class>
     
@@ -2538,7 +2555,7 @@ It represents the recall of an algorithm. Recall is the ratio of correctly predi
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#user_generated_content">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#spatial_data"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Content generated by user. It reflects the use of the territory in terms of mobility, frequentation, activities</rdfs:comment>
+        <rdfs:comment>Content generated by user. It reflects the use of the territory in terms of mobility, frequentation, activities</rdfs:comment>
         <rdfs:label xml:lang="en">user_generated_content</rdfs:label>
     </owl:Class>
     
@@ -2548,7 +2565,7 @@ It represents the recall of an algorithm. Recall is the ratio of correctly predi
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#utility_and_govermental_services">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#topographic_data"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Includes utility facilities such as sewage, waste management, energy supply and water supply, administrative and social governmental services such as public administrations, civil protection sites, schools and hospitals.</rdfs:comment>
+        <rdfs:comment>Includes utility facilities such as sewage, waste management, energy supply and water supply, administrative and social governmental services such as public administrations, civil protection sites, schools and hospitals.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://inspire.ec.europa.eu/theme/us"/>
         <rdfs:label xml:lang="en">utility_and_govermental_services</rdfs:label>
     </owl:Class>
@@ -2599,7 +2616,7 @@ It represents the recall of an algorithm. Recall is the ratio of correctly predi
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#water_transport">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#transport_network"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This class represents water network topographic data (e.g. navigable waterways, etc.)</rdfs:comment>
+        <rdfs:comment>This class represents water network topographic data (e.g. navigable waterways, etc.)</rdfs:comment>
         <rdfs:label xml:lang="en">water_transport</rdfs:label>
     </owl:Class>
     
@@ -2628,7 +2645,7 @@ It represents the recall of an algorithm. Recall is the ratio of correctly predi
 
     <owl:Class rdf:about="http://www.semanticweb.org/lulc_review#3d_points_cloud">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/lulc_review#sensor_data"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A 3d point cloud acquired by lidar or photogrammetry using any vector</rdfs:comment>
+        <rdfs:comment>A 3d point cloud acquired by lidar or photogrammetry using any vector</rdfs:comment>
         <rdfs:label xml:lang="en">3d points cloud</rdfs:label>
     </owl:Class>
     
@@ -2692,5 +2709,5 @@ It represents the recall of an algorithm. Recall is the ratio of correctly predi
 
 
 
-<!-- Generated by the OWL API (version 4.5.13) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
 
